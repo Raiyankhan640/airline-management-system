@@ -28,24 +28,37 @@ while ($row = $result_airplanes->fetch_assoc()) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $flight_number = $_POST['flight_number'];
-    $departure_time = $_POST['departure_time'];
-    $arrival_time = $_POST['arrival_time'];
-    $status = $_POST['status'];
-    $route_id = $_POST['route_id'];
-    $airline_id = $_POST['airline_id'];
-    $airplane_id = $_POST['airplane_id'];
+    if (isset($_POST['delete_flight_number'])) {
+        // Handle delete flight by flight number
+        $flight_number = $_POST['delete_flight_number'];
+        $deleteQuery = "DELETE FROM flight WHERE flight_number = '$flight_number'";
 
-    if (!isset($airplane_id) || empty($airplane_id)) {
-        echo "Error: Airplane ID is required.";
-    } else {
-        $insertQuery = "INSERT INTO flight (flight_number, departure_time, arrival_time, status, route_id, airplane_id)
-        VALUES ('$flight_number', '$departure_time', '$arrival_time', '$status', '$route_id', '$airplane_id')";
-
-        if ($conn->query($insertQuery) === TRUE) {
-            echo "<script>alert('Airline added successfully!');</script>";
+        if ($conn->query($deleteQuery) === TRUE) {
+            echo "<script>alert('Flight deleted successfully!');</script>";
         } else {
-            echo "Error: " . $insertQuery . "<br>" . $conn->error;
+            echo "Error: " . $deleteQuery . "<br>" . $conn->error;
+        }
+    } elseif (isset($_POST['flight_number'])) {
+        // Handle add flight
+        $flight_number = $_POST['flight_number'];
+        $departure_time = $_POST['departure_time'];
+        $arrival_time = $_POST['arrival_time'];
+        $status = $_POST['status'];
+        $route_id = $_POST['route_id'];
+        $airline_id = $_POST['airline_id'];
+        $airplane_id = $_POST['airplane_id'];
+
+        if (!isset($airplane_id) || empty($airplane_id)) {
+            echo "Error: Airplane ID is required.";
+        } else {
+            $insertQuery = "INSERT INTO flight (flight_number, departure_time, arrival_time, status, route_id, airplane_id)
+            VALUES ('$flight_number', '$departure_time', '$arrival_time', '$status', '$route_id', '$airplane_id')";
+
+            if ($conn->query($insertQuery) === TRUE) {
+                echo "<script>alert('Airline added successfully!');</script>";
+            } else {
+                echo "Error: " . $insertQuery . "<br>" . $conn->error;
+            }
         }
     }
 }
@@ -67,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p class="text-center text-gray-600 mb-6">Fill out the details below to add a new flight to the system.</p>
 
         <form action="add_flight.php" method="POST" class="space-y-4">
+            <!-- Flight Add Form -->
             <div>
                 <label for="flight_number" class="block text-sm font-medium text-gray-700">Flight Number</label>
                 <input type="text" name="flight_number" id="flight_number" required
@@ -134,15 +148,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </button>
         </form>
 
-        <!-- Go Back Button -->
-        <div class="text-center mt-4">
-            <a href="admin.php" class="text-blue-500 hover:underline">Go Back</a>
-        </div>
+        <!-- Delete Flight Form -->
+        <form action="add_flight.php" method="POST" class="space-y-4 mt-8">
+            <h3 class="text-xl font-semibold text-center text-gray-800 mb-4">Delete Flight</h3>
 
-        <!-- Footer -->
-        <footer class="mt-6 text-center text-gray-500 text-sm">
-            &copy; <?= date('Y'); ?> Airline Management System. All Rights Reserved.
-        </footer>
+            <div>
+                <label for="delete_flight_number" class="block text-sm font-medium text-gray-700">Flight Number</label>
+                <input type="text" name="delete_flight_number" id="delete_flight_number" required
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500">
+            </div>
+
+            <button type="submit"
+                class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md shadow-md transition duration-150 ease-in-out">
+                Delete Flight
+            </button>
+        </form>
     </div>
 </body>
 

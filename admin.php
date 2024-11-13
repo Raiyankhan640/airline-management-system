@@ -13,7 +13,7 @@
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-bold text-green-600">Admin Dashboard</h1>
             <div class="space-x-4">
-                <a href="index.php" 
+                <a href="../admin//index.html" 
                    class="px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition">Back to Home</a>
                 <a href="http://localhost/airlinedb/admin/" 
                    class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Switch to User</a>
@@ -34,10 +34,15 @@
                 <p class="text-gray-600 mt-2">Modify an existing flight's details.</p>
             </a>
 
-            <a href="delete_flight.php" 
+            <a href="add_route.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
-                <h2 class="text-lg font-semibold text-green-600">Delete Flight</h2>
-                <p class="text-gray-600 mt-2">Remove a flight from the system.</p>
+                <h2 class="text-lg font-semibold text-green-600">Add Route</h2>
+                <p class="text-gray-600 mt-2">Add a route on the system.</p>
+            </a>
+            <a href="add_airport.php" 
+               class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
+                <h2 class="text-lg font-semibold text-green-600">Add Airport</h2>
+                <p class="text-gray-600 mt-2">Add a route on the system.</p>
             </a>
 
             <a href="view_flights.php" 
