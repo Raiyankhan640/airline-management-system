@@ -15,7 +15,7 @@
             <div class="space-x-4">
                 <a href="../admin//index.html" 
                    class="px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition">Back to Home</a>
-                <a href="http://localhost/airlinedb/admin/" 
+                <a href="http://localhost/airlinedb/admin/user.php" 
                    class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Switch to User</a>
             </div>
         </div>
@@ -42,16 +42,16 @@
             <a href="add_airport.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
                 <h2 class="text-lg font-semibold text-green-600">Add Airport</h2>
-                <p class="text-gray-600 mt-2">Add a route on the system.</p>
+                <p class="text-gray-600 mt-2">Add a airport on the system.</p>
             </a>
 
-            <a href="view_flights.php" 
+            <a href="user.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
                 <h2 class="text-lg font-semibold text-green-600">View All Flights</h2>
                 <p class="text-gray-600 mt-2">See all flights currently scheduled.</p>
             </a>
 
-            <a href="manage_crew.php" 
+            <a href="add_crew.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
                 <h2 class="text-lg font-semibold text-green-600">Manage Crew</h2>
                 <p class="text-gray-600 mt-2">Add, update, or remove crew members.</p>

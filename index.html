@@ -1,19 +1,56 @@
 <!-- index.php -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Airline Management System</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your stylesheet -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="center-container">
-        <h1>Welcome to the Airline Management System</h1>
-        <div class="button-container">
-            <button onclick="window.location.href='user.php'" class="main-button">User</button>
-            <button onclick="window.location.href='admin.php'" class="main-button">Admin</button>
-        </div>
+
+<body class="bg-gray-50 font-sans">
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-green-400 to-blue-500">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-green-900">Airline Management System</h1>
+            <p class="text-lg text-gray-700 mt-4">Efficiently manage flights, passengers, and schedules</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
+            <!-- Welcome Section -->
+            <section class="text-center mb-8">
+                <h2 class="text-2xl font-semibold text-green-800">Welcome!</h2>
+                <p class="text-gray-600 mt-2">
+                    Please choose your role to continue:
+                </p>
+            </section>
+
+            <!-- Button Section -->
+            <section class="flex justify-center space-x-6 mt-6 font-semibold">
+                <button onclick="window.location.href='user.php'" 
+                        class="px-6 py-3 bg-green-500 text-white text-lg rounded-lg shadow hover:bg-green-600 transition">
+                    User
+                </button>
+                <button onclick="window.location.href='admin.php'" 
+                        class="px-6 py-3 bg-blue-500 text-white text-lg rounded-lg shadow hover:bg-blue-600 transition">
+                    Admin
+                </button>
+            </section>
+        </main>
+
+        <!-- Additional Section (Optional) -->
+        <section class="mt-12 w-full max-w-4xl text-center text-gray-700">
+            <h3 class="text-lg font-medium text-green-900">About This System</h3>
+            <p class="mt-2">
+                Our Airline Management System simplifies the management of flights, passengers, schedules, and more.
+                Choose "User" to browse available flights, or "Admin" to manage flight schedules and operations.
+            </p>
+        </section>
     </div>
 </body>
+
 </html>
