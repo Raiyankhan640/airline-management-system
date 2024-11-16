@@ -19,6 +19,11 @@ while ($row = $result_routes->fetch_assoc()) {
     $routes[] = $row;
 }
 
+/**
+ * Explanation: The route table only stores the origin_airport_id, which is a reference to the airport_id in the airport table. To get the actual name of   the origin airport, we need to join the airport table (aliased as airport1) on route.origin_airport_id = airport1.airport_id.
+ *Similarly, the route table stores the destination_airport_id, which is a reference to another airport_id. We join the airport table again (this time aliased as airport2) to get the name of the destination airport on route.destination_airport_id = airport2.airport_id.
+ */
+
 // Fetch all airplanes (for airplane_id selection)
 $query_airplanes = "SELECT airplane_id, model AS airplane_model FROM airplane";
 $result_airplanes = $conn->query($query_airplanes);
